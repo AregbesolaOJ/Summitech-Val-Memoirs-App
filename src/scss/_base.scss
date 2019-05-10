@@ -1,0 +1,25 @@
+/** This will contain the site,s color variable and default styles */
+@font-face {
+  font-family: 'Montserrat', sans-serif;
+  src: url("https://fonts.googleapis.com/css?family=Montserrat");
+}
+
+$primary-color:      #222222;
+$secondary-color:    #E86161;
+$gold:               #88744a;
+
+
+html {
+box-sizing:           border-box;
+color:                black;
+background-color:     #FFF;   
+font-family: 'Montserrat', sans-serif;
+font-size:            12px;
+letter-spacing:       0.35px;
+}
+*, *:before, *:after {
+box-sizing: inherit;
+}
+a {
+text-decoration: none;
+}

@@ -1,0 +1,207 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+/** This will contain the site,s color variable and default styles */
+@font-face {
+  font-family: 'Montserrat', sans-serif;
+  src: url("https://fonts.googleapis.com/css?family=Montserrat"); }
+html {
+  box-sizing: border-box;
+  color: black;
+  background-color: #FFF;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.35px; }
+
+*, *:before, *:after {
+  box-sizing: inherit; }
+
+a {
+  text-decoration: none; }
+
+.App {
+  width: 100%;
+  text-align: center; }
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 40vmin;
+  pointer-events: none; }
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: #ffffff; }
+
+.App-link {
+  color: #61dafb;
+  text-decoration: none; }
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg); }
+  to {
+    transform: rotate(360deg); } }
+/** This contains the header section colors and styles */
+.hide {
+  display: none; }
+
+.page_header {
+  border: 1px solid red;
+  width: 100vw;
+  padding: 30px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(0, 0, 0, 0.4) url("../assets/footer.jpg") no-repeat center/cover;
+  margin-bottom: 100px; }
+
+.page_header_logo {
+  font-size: 40px;
+  font-weight: bold;
+  color: #fff;
+  letter-spacing: 5px; }
+
+.page_header_navigations {
+  font-size: 12px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  color: #fff; }
+
+.page_header_navigations p {
+  margin: 0 10px; }
+
+@media (max-width: 510px) {
+  .page_header {
+    position: fixed;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    padding: 20px; }
+
+  .page_header_logo {
+    font-size: 24px;
+    letter-spacing: 1px; }
+
+  .page_header_navigations {
+    display: none; }
+
+  #mobileMenu {
+    display: block;
+    color: #fff;
+    font-size: 20px; } }
+.slider {
+  position: relative;
+  width: 90vw;
+  margin: 100px auto 30px;
+  height: 400px;
+  overflow: hidden;
+  white-space: nowrap; }
+
+.slider-wrapper {
+  position: relative;
+  height: 100%;
+  width: 100%; }
+
+.slide {
+  display: inline-block;
+  height: 100%;
+  width: 100%; }
+
+.arrow {
+  height: 50px;
+  width: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f9f9f9;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: transform ease-in .1s; }
+
+.nextArrow {
+  position: absolute;
+  top: 50%;
+  right: 25px;
+  z-index: 999;
+  color: #fff; }
+
+.backArrow {
+  position: absolute;
+  top: 50%;
+  left: 25px;
+  z-index: 999;
+  color: #fff; }
+
+.fa-arrow-right:before, .fa-arrow-left:before {
+  color: #222; }
+
+.about {
+  border: 1px solid red; }
+
+.btn {
+  width: 100%;
+  border-radius: 5px;
+  text-align: center;
+  text-transform: capitalize;
+  font-weight: bold;
+  font-size: 14px;
+  color: #222222;
+  background-color: #E86161;
+  padding: 10px 0; }
+
+/*# sourceMappingURL=index.css.map */
