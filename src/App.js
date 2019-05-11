@@ -20,35 +20,28 @@ class App extends React.Component {
     gender: '',
     headline: '',
     user_story: '',
-    userExists: false,
     addNewStoryModal: false
   }
 
   addNewStoryHandler = () => {
     this.setState({ addNewStoryModal: true })
-    console.log('heeeey');
   }
 
   handleFormChage = event => {
     const { name, value } = event.target;
 
-    // const currentState = this.state.stories;
-
     this.setState({
       [name]: value
-    })  
-
-    this.state.stories.map(story => {
-        if(story.user_name === this.state.user_name) {
-            this.setState({ 
-              userExists: true 
-              // stories: currentState 
-            })
-        }
-        return story;
-    })
-
+    }); 
   }
+
+
+  componentDidMount() {
+    this.setState({
+      stories: JSON.parse(localStorage.getItem('stories')) || []
+    });
+  }
+
 
   formModalClose = () => {
     this.setState({ 
@@ -62,22 +55,20 @@ class App extends React.Component {
      })    
   }
 
-  addStoryHandler = event => {
+  addStoryHandler = () => {
 
       if(this.state.first_name === '' || this.state.last_name === '' || this.state.user_name === '' || this.state.gender === '' || this.state.headline === '' || this.state.user_story === '') {
-        
-        alert('All fields are required!!!')
+        return alert('All fields are required!!!');
+      }
       
-      } else if(!this.state.userExists) {
-        
-        let userId = 1;
+      if (this.state.stories.filter(story => story.user_name === this.state.user_name).length) {
+        alert("Opps, mno way, username already exists");
+        return;
+      }
 
-        if(this.state.stories.length > 0) {
-          userId = this.state.stories.length + 1;
-        }
-    
+
         const storyData = {
-          id: userId,
+          id: parseInt(Date.now() + Math.random()),
           first_name: this.state.first_name,
           last_name: this.state.last_name,
           user_name: this.state.user_name,
@@ -86,11 +77,9 @@ class App extends React.Component {
           user_story: this.state.user_story,
           likes: 0
         }
-    
-        const updatedStories = this.state.stories.concat(storyData);
-    
+
         this.setState({ 
-          stories: updatedStories, 
+          stories: [...this.state.stories, storyData], 
           first_name: '',
           last_name: '',
           user_name: '',
@@ -98,19 +87,10 @@ class App extends React.Component {
           headline: '',
           user_story: '',
           addNewStoryModal: false
-         })    
-    
-        console.log(storyData, this.state.stories);    
-    
+         }, () => {
+          localStorage.setItem('stories', JSON.stringify(this.state.stories))
+         });    
 
-      } else {
-        const currentState = this.state.stories;
-
-        alert(`Oops! Dear ${this.state.user_name}, sorry no user can post more than one (1) story, and looking at your username we already have one story from you.`);
-
-        this.setState({ stories: currentState })
-      
-      }
 
   }
 

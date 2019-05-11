@@ -1,5 +1,8 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import Unsplash from 'unsplash-js';
+
+// require syntax
 
 export const Slide = ({ image }) => {
     const styles = {
@@ -75,8 +78,16 @@ class Slider extends React.Component {
     slideWidth = () => {
        return document.querySelector('.slide').clientWidth
     }
-
+  
+        
     componentDidMount() {
+      const Unsplash = require('unsplash-js').default;
+
+      const unsplash = new Unsplash({
+        applicationId: "740219091492359718effc57ccb516abfccbba727592c6ab7e05d3e6ce7d4e97",
+        secret: "2b4a0454d392a6fe1b8449631e92ac9ed0032ffd7114cf493c49d824de2ae2ac"
+      });
+
       fetch('https://api.unsplash.com/search/photos/1/office')
         .then(res => console.log(res));
     }

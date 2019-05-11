@@ -23,7 +23,7 @@ const FormModal = ({ firstName, lastName, userName, maleCheck, femaleCheck, clos
         <br />
         <textarea type="text" name="user_story" value={userStory} placeholder="Please Leave us your Valentine Day story here" onChange={change} />
         <br />
-        <Button clicked={clicked}>add story</Button>
+        <Button clicked={clicked}>Submit</Button>
       </div>
     </div>
   );
