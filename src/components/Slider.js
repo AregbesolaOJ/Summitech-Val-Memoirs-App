@@ -1,23 +1,20 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import Unsplash from 'unsplash-js';
 
-// require syntax
-
-export const Slide = ({ image }) => {
+export const Slide = ({ image, title }) => {
     const styles = {
         backgroundImage: `url(${image})`,
         backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat',
         backgroundPosition: '50% 60%'
     }
-    return <div className="slide" style={styles}></div>
+    return <div className="slide" title={title} style={styles}></div>
 }
 
 export const LeftArrow = (props) => {
     return (
         <div className="backArrow arrow" onClick={props.goToPrevSlide}>
-          <FontAwesomeIcon icon="arrow-left" color='#000' size="2x"/>
+          <FontAwesomeIcon icon="angle-left" color='#000' size="2x"/>
         </div>
     );
 }
@@ -26,23 +23,14 @@ export const LeftArrow = (props) => {
 export const RightArrow = (props) => {
     return (
         <div className="nextArrow arrow" onClick={props.goToNextSlide}>
-          <FontAwesomeIcon icon="arrow-right" color='#000' size="2x"/>
+          <FontAwesomeIcon icon="angle-right" color='#000' size="2x"/>
         </div>
     );
 }
 
 class Slider extends React.Component {
     state = {
-      images: [
-        "https://s3.us-east-2.amazonaws.com/dzuz14/thumbnails/aurora.jpg",
-        "https://s3.us-east-2.amazonaws.com/dzuz14/thumbnails/canyon.jpg",
-        "https://s3.us-east-2.amazonaws.com/dzuz14/thumbnails/city.jpg",
-        "https://s3.us-east-2.amazonaws.com/dzuz14/thumbnails/desert.jpg",
-        "https://s3.us-east-2.amazonaws.com/dzuz14/thumbnails/mountains.jpg",
-        "https://s3.us-east-2.amazonaws.com/dzuz14/thumbnails/redsky.jpg",
-        "https://s3.us-east-2.amazonaws.com/dzuz14/thumbnails/sandy-shores.jpg",
-        "https://s3.us-east-2.amazonaws.com/dzuz14/thumbnails/tree-of-life.jpg"
-      ],
+      images: [],
       currentIndex: 0,
       translateValue: 0
     }
@@ -81,20 +69,24 @@ class Slider extends React.Component {
   
         
     componentDidMount() {
-      const Unsplash = require('unsplash-js').default;
 
-      const unsplash = new Unsplash({
-        applicationId: "740219091492359718effc57ccb516abfccbba727592c6ab7e05d3e6ce7d4e97",
-        secret: "2b4a0454d392a6fe1b8449631e92ac9ed0032ffd7114cf493c49d824de2ae2ac"
-      });
-
-      fetch('https://api.unsplash.com/search/photos/1/office')
-        .then(res => console.log(res));
+      // fetch('https://api.unsplash.com/search/photos/?page=1&query=valentinesday&client_id=740219091492359718effc57ccb516abfccbba727592c6ab7e05d3e6ce7d4e97')
+      //   .then(res => res.json())
+      //   .then(data => {
+      //     const slidePictures = data.results;
+      //     this.setState({ 
+      //       images: slidePictures
+      //     })
+      //   })
+      //   .catch(err => {
+      //     alert('Error happened during while loading this page, please check Internet Connection and refresh the page!', err);
+      //   })
     }
+    
     render() {
       let slider = <FontAwesomeIcon icon="spinner" spin color='#000' size="3x"/>
 
-      if(this.state.images.length > 0) {
+      if(this.state.images.length) {
         slider = (
           <React.Fragment>
             <div className="slider-wrapper"
@@ -103,8 +95,8 @@ class Slider extends React.Component {
                 transition: 'transform ease-out 0.45s'
               }}>
                 {
-                  this.state.images.map((image, i) => (
-                    <Slide key={i} image={image} />
+                  this.state.images.map(image => (
+                    <Slide key={image.id} image={image.urls.regular} title={image.alt_description} />
                   ))
                 }
             </div>

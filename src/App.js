@@ -4,27 +4,34 @@ import Header from './components/Header';
 import About from './components/About';
 import FormModal from './components/FormModal';
 import StoryList from './components/Stories/Stories';
+import FullStory from './components/FullStoryModal';
 
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faArrowLeft, faArrowRight, faBars, faSpinner} from '@fortawesome/free-solid-svg-icons'
+import { faWindowClose, faHeart, faBars, faSpinner, faAngleRight, faAngleLeft } from '@fortawesome/free-solid-svg-icons'
 
-library.add(faArrowLeft, faArrowRight, faBars, faSpinner)
+library.add( faWindowClose, faHeart, faBars, faSpinner, faAngleRight, faAngleLeft )
 
 class App extends React.Component {
   state = {
     stories: [],
+    modalStory: [],
     first_name: '',
-    last_name: '',
     user_name: '',
+    last_name: '',
     gender: '',
     headline: '',
     user_story: '',
+    showFullStoryModal: false,
     addNewStoryModal: false
   }
 
   addNewStoryHandler = () => {
     this.setState({ addNewStoryModal: true })
+    this.state.stories.map(story => {
+      console.log(story.user_story.length);
+      return story;
+    })
   }
 
   handleFormChage = event => {
@@ -40,6 +47,7 @@ class App extends React.Component {
     this.setState({
       stories: JSON.parse(localStorage.getItem('stories')) || []
     });
+
   }
 
 
@@ -51,7 +59,8 @@ class App extends React.Component {
       gender: '',
       headline: '',
       user_story: '',
-      addNewStoryModal: false
+      addNewStoryModal: false,
+      showFullStoryModal: false
      })    
   }
 
@@ -109,8 +118,22 @@ class App extends React.Component {
   
   }
 
+  viewMoreClick = id => {
+
+    const story = this.state.stories.filter(story => {
+      if(story.id === id) {
+        this.setState({ modalStory: story, showFullStoryModal: true });
+      }
+      return story;
+    });
+
+
+    console.log('working', id, story, this.state.modalStory);
+  }
+
   render() {
-    const newStoryModal = <FormModal 
+    const newStoryModal = (
+                        <FormModal 
                             firstName={this.state.first_name} 
                             lastName={this.state.last_name} 
                             userName={this.state.user_name} 
@@ -121,15 +144,29 @@ class App extends React.Component {
                             change={this.handleFormChage} 
                             closeClicked={this.formModalClose} 
                             clicked={this.addStoryHandler} 
-                        /> 
+                        />
+                        )
 
+    const fullStory = (
+                    <FullStory 
+                            first_name={this.state.modalStory.first_name} 
+                            last_name={this.state.modalStory.last_name} 
+                            user_name={this.state.modalStory.user_name} 
+                            headline={this.state.modalStory.headline} 
+                            fullStory={this.state.modalStory.user_story} 
+                            likes={this.state.modalStory.likes} 
+                            closeClicked={this.formModalClose}
+                        />
+                       )
+                        
     return (
       <div className="App">
         <Header />
         <Slider />
         {this.state.addNewStoryModal ? newStoryModal : null}
+        {this.state.showFullStoryModal ? fullStory : null}
         <About clicked={this.addNewStoryHandler}/>
-        <StoryList stories={this.state.stories} likesClick={this.handleLikes}/>
+        <StoryList stories={this.state.stories} likesClick={this.handleLikes} viewMoreClick={this.viewMoreClick}/>
         <FontAwesomeIcon icon={faSpinner} spin style={{color: 'red'}}/>
         <h2>hello world</h2>
       </div>
