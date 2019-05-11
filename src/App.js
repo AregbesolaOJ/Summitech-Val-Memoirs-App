@@ -29,7 +29,6 @@ class App extends React.Component {
   addNewStoryHandler = () => {
     this.setState({ addNewStoryModal: true })
     this.state.stories.map(story => {
-      console.log(story.user_story.length);
       return story;
     })
   }
@@ -41,15 +40,6 @@ class App extends React.Component {
       [name]: value
     }); 
   }
-
-
-  componentDidMount() {
-    this.setState({
-      stories: JSON.parse(localStorage.getItem('stories')) || []
-    });
-
-  }
-
 
   formModalClose = () => {
     this.setState({ 
@@ -71,7 +61,7 @@ class App extends React.Component {
       }
       
       if (this.state.stories.filter(story => story.user_name === this.state.user_name).length) {
-        alert("Opps, mno way, username already exists");
+        alert("Oops, sorry no user can post more than one (1) story, that username already exists");
         return;
       }
 
@@ -119,16 +109,19 @@ class App extends React.Component {
   }
 
   viewMoreClick = id => {
-
     const story = this.state.stories.filter(story => {
       if(story.id === id) {
         this.setState({ modalStory: story, showFullStoryModal: true });
       }
       return story;
     });
+  }
 
+  componentDidMount() {
+    this.setState({
+      stories: JSON.parse(localStorage.getItem('stories')) || []
+    });
 
-    console.log('working', id, story, this.state.modalStory);
   }
 
   render() {
@@ -166,9 +159,10 @@ class App extends React.Component {
         {this.state.addNewStoryModal ? newStoryModal : null}
         {this.state.showFullStoryModal ? fullStory : null}
         <About clicked={this.addNewStoryHandler}/>
-        <StoryList stories={this.state.stories} likesClick={this.handleLikes} viewMoreClick={this.viewMoreClick}/>
-        <FontAwesomeIcon icon={faSpinner} spin style={{color: 'red'}}/>
-        <h2>hello world</h2>
+        <StoryList stories={this.state.stories} 
+                   likesClick={this.handleLikes} 
+                   viewMoreClick={this.viewMoreClick}
+        />
       </div>
     );
   

@@ -17,10 +17,14 @@ const FormModal = ({ firstName, lastName, userName, maleCheck, femaleCheck, clos
               <br />
               <input type="text" name="user_name" value={userName} placeholder="User Name" onChange={change} />
               <br />
-              <input type="radio" name="gender" value="male" checked={maleCheck} onChange={change}/> Male
-              <br />
-              <input type="radio" name="gender" value="female" checked={femaleCheck} onChange={change}/>Female
-              <br />
+              <div>
+                <div className="radio">
+                  <input type="radio" name="gender" value="male" checked={maleCheck} onChange={change}/> Male
+                </div>
+                <div className="radio">
+                  <input type="radio" name="gender" value="female" checked={femaleCheck} onChange={change}/>Female
+                </div>
+              </div>
               <input type="text" name="headline" value={headline} placeholder="Headline" onChange={change} />
               <br />
               <textarea type="text" name="user_story" value={userStory} placeholder="Please Leave us your Valentine Day story here" onChange={change} />

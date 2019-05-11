@@ -1,6 +1,7 @@
 .App {
-  width: 100%;
-  text-align: center;
+  width: 100vw;
+  margin: 0;
+  padding: 0;
 }
 
 .App-logo {
@@ -33,6 +34,84 @@
     transform: rotate(360deg);
   }
 }
+.storyList {
+  padding: 10px;
+  margin: 10px 0;
+}
+.story {
+  width: 90%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin: 10px auto;
+  border: 1px solid #eeeeee;
+  box-shadow: 1px 2px 1px rgba(0, 0, 0, 0.2);
+}
+.user-avatar {
+ background-color: #E86161;
+ color: #e5e5e5;
+ border: 1px solid #222222;
+ height: 50px;
+ width: 50px;
+ border-radius: 50%;
+ margin: 5px auto;
+ font-weight: bold;
+ font-size: 18px;
+ text-transform: uppercase;
+ padding: 15px 0;
+ text-align: center; 
+}
+.user-name {
+  text-align: center;
+  font-size: 12px;
+  font-weight: bold;
+  margin: 5px 0;
+  text-transform: capitalize;
+}
+.user-headline {
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  text-transform: uppercase;
+  border-bottom: 1px solid #222222;
+  padding: 10px 0;
+}
+.user-story {
+  line-height: 1.4;
+  text-align: center;
+  font-size: 14px;
+  padding: 10px 20px;
+  margin: 5px 0;
+  text-transform: capitalize;
+}
+.user-likes {
+  width: 60%;
+  padding: 5px 0;
+  margin: 15px auto 5px;
+  border: 1px solid #f9f9f9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+  font-weight: bold;
+}
 .likes {
   color: #e5e5e5;
+  margin-right: 10px;
+}
+.likes:active {
+  animation: App-logo-spin infinite 60s linear;
+}
+.view-more {
+  font-size: 12px;
+  font-style: italic;
+  color: #dddddd;
+}
+.view-more:hover,
+.view-more:active {
+  border: 1px solid #E86161;
+  font-size: 12px;
+  font-style: italic;
+  color: #222222;
+  border-radius: 5px;;
 }

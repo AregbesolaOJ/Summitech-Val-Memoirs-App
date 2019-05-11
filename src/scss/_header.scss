@@ -4,7 +4,6 @@
     display: none;
 }
 .page_header {
-    border: 1px solid red;
     width: 100vw;
     padding: 30px 20px;
     display: flex;
@@ -51,21 +50,4 @@
         color: #fff;
         font-size: 20px;
     }
-    // .mobileMenuContainer {
-    //     padding: 50px 20px;
-    //     position: fixed;
-    //     top: 50px;
-    //     background-color: rgba(0, 0, 0, 0.9);
-    //     left: 0;
-    //     z-index: 2;
-    //     width: 100vw;
-    //     height: 100vh;
-    //     text-align: center;
-    // }
-    // .mobileMenuContainer p {
-    //     font-size: 16px;
-    //     margin: 30px 0;
-    //     text-decoration: underline;
-    //     color: $secondary-color;
-    // }
 }

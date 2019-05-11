@@ -22,13 +22,13 @@ const Story = ({ first_name, last_name, name, headline, story, likes, clicked, l
     return (
     <div className="story" onClick={clicked}>
       <div className="user-avatar">{avatar}</div>
-      <div className="user-name">{name}</div>
+      <div className="user-name">@{name}</div>
       <div className="user-headline">{headline}</div>
       <div className="user-story">
         {userStory}<span className="view-more" onClick={viewMoreClick} style={{display: story.length < 100 && 'none'}}>...view more</span>
       </div>
       <div className="user-likes">
-          <FontAwesomeIcon icon="heart" className="likes" onClick={likesClick} size="3x" style={{color: likes >= 1 && 'red'}}/>Likes: {likes}
+          <FontAwesomeIcon icon="heart" className="likes" onClick={likesClick} size="1x" style={{color: likes >= 1 && 'red'}}/>Likes: {likes}
       </div>
     </div>
   );

@@ -68,8 +68,9 @@ a {
   text-decoration: none; }
 
 .App {
-  width: 100%;
-  text-align: center; }
+  width: 100vw;
+  margin: 0;
+  padding: 0; }
 
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
@@ -95,15 +96,92 @@ a {
     transform: rotate(0deg); }
   to {
     transform: rotate(360deg); } }
+.storyList {
+  padding: 10px;
+  margin: 10px 0; }
+
+.story {
+  width: 90%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin: 10px auto;
+  border: 1px solid #eeeeee;
+  box-shadow: 1px 2px 1px rgba(0, 0, 0, 0.2); }
+
+.user-avatar {
+  background-color: #E86161;
+  color: #e5e5e5;
+  border: 1px solid #222222;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  margin: 5px auto;
+  font-weight: bold;
+  font-size: 18px;
+  text-transform: uppercase;
+  padding: 15px 0;
+  text-align: center; }
+
+.user-name {
+  text-align: center;
+  font-size: 12px;
+  font-weight: bold;
+  margin: 5px 0;
+  text-transform: capitalize; }
+
+.user-headline {
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  text-transform: uppercase;
+  border-bottom: 1px solid #222222;
+  padding: 10px 0; }
+
+.user-story {
+  line-height: 1.4;
+  text-align: center;
+  font-size: 14px;
+  padding: 10px 20px;
+  margin: 5px 0;
+  text-transform: capitalize; }
+
+.user-likes {
+  width: 60%;
+  padding: 5px 0;
+  margin: 15px auto 5px;
+  border: 1px solid #f9f9f9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+  font-weight: bold; }
+
 .likes {
-  color: #e5e5e5; }
+  color: #e5e5e5;
+  margin-right: 10px; }
+
+.likes:active {
+  animation: App-logo-spin infinite 60s linear; }
+
+.view-more {
+  font-size: 12px;
+  font-style: italic;
+  color: #dddddd; }
+
+.view-more:hover,
+.view-more:active {
+  border: 1px solid #E86161;
+  font-size: 12px;
+  font-style: italic;
+  color: #222222;
+  border-radius: 5px; }
 
 /** This contains the header section colors and styles */
 .hide {
   display: none; }
 
 .page_header {
-  border: 1px solid red;
   width: 100vw;
   padding: 30px 20px;
   display: flex;
@@ -194,10 +272,36 @@ a {
   color: #222; }
 
 .about {
-  border: 1px solid red; }
+  width: 90%;
+  margin: 30px auto;
+  padding: 20px 10px;
+  display: flex;
+  flex-direction: column; }
+
+.intro {
+  font-size: 14px;
+  font-style: italic;
+  color: #E86161;
+  margin: 10px 0;
+  text-align: center; }
+
+.about h1 {
+  text-decoration: underline;
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+  text-transform: uppercase; }
+
+.about p {
+  text-align: justify;
+  font-size: 12px;
+  line-height: 1.4;
+  letter-spacing: 1.2;
+  margin: 5px 0 20px; }
 
 .btn {
-  width: 100%;
+  width: 70%;
+  margin: 20px auto 5px;
   border-radius: 5px;
   text-align: center;
   text-transform: capitalize;
@@ -205,10 +309,11 @@ a {
   font-size: 14px;
   color: #222222;
   background-color: #E86161;
-  padding: 10px 0; }
+  padding: 10px;
+  cursor: pointer; }
 
 .modal {
-  padding: 150px 0;
+  padding: 120px 0;
   z-index: 2;
   position: fixed;
   top: 0;
@@ -235,7 +340,76 @@ a {
   color: #222222;
   background-color: #E86161; }
 
+.full-story-avatar {
+  background-color: #E86161;
+  color: #e5e5e5;
+  border: 1px solid #222222;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  margin: 5px auto;
+  font-weight: bold;
+  font-size: 18px;
+  padding: 15px 0;
+  text-align: center; }
+
+.full-story-full-name {
+  font-size: 14px;
+  font-weight: bold;
+  color: #222222;
+  text-align: center;
+  text-transform: uppercase;
+  padding: 10px 0; }
+
+.full-story-user-name {
+  text-align: center;
+  font-size: 12px;
+  font-weight: bold;
+  margin: 15px 0 5px;
+  text-transform: capitalize; }
+
+.full-story-headline {
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+  text-transform: uppercase;
+  border-bottom: 1px solid #222222;
+  padding: 10px 0; }
+
+.full-user-story {
+  line-height: 1.4;
+  text-align: justify;
+  font-size: 14px;
+  padding: 10px 20px;
+  margin: 5px 0;
+  text-transform: capitalize; }
+
+.full-story-likes {
+  width: 60%;
+  padding: 5px 0;
+  margin: 15px auto 5px;
+  border: 1px solid #f9f9f9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+  font-weight: bold; }
+
 .formModal {
-  margin-top: 50px; }
+  padding-bottom: 10px; }
+
+.user-form input,
+.user-form textarea {
+  width: 90%;
+  margin: 5px 0;
+  outline: none;
+  padding: 10px 0 10px 5px;
+  border-radius: 5px;
+  border: 2px solid #999999; }
+
+.radio {
+  display: inline-block;
+  cursor: pointer;
+  margin-right: 10px; }
 
 /*# sourceMappingURL=index.css.map */
