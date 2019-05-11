@@ -19,7 +19,7 @@ const Fullstory = ({ first_name, last_name, user_name, headline, fullStory, like
               {fullStory}
             </div>
             <div className="full-story-likes">
-                <FontAwesomeIcon icon="heart" size="2x" style={{color: 'red'}}/>Likes: {likes}
+                <FontAwesomeIcon icon="heart" className="likes" size="3x" style={{color: likes >= 1 && 'red'}}/>Likes: {likes}
             </div>
           </div>
         </div>

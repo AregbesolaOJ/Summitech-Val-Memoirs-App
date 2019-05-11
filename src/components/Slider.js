@@ -47,8 +47,7 @@ class Slider extends React.Component {
   
     goToNextSlide = () => {
       // Exiting the method early if we are at the end of the images array.
-      // We also want to reset currentIndex and translateValue, so we return
-      // to the first image in the array.
+      // We return to the first image in the array.
       if(this.state.currentIndex === this.state.images.length - 1) {
         return this.setState({
           currentIndex: 0,
@@ -70,17 +69,17 @@ class Slider extends React.Component {
         
     componentDidMount() {
 
-      // fetch('https://api.unsplash.com/search/photos/?page=1&query=valentinesday&client_id=740219091492359718effc57ccb516abfccbba727592c6ab7e05d3e6ce7d4e97')
-      //   .then(res => res.json())
-      //   .then(data => {
-      //     const slidePictures = data.results;
-      //     this.setState({ 
-      //       images: slidePictures
-      //     })
-      //   })
-      //   .catch(err => {
-      //     alert('Error happened during while loading this page, please check Internet Connection and refresh the page!', err);
-      //   })
+      fetch('https://api.unsplash.com/search/photos/?page=1&query=valentinesday&client_id=740219091492359718effc57ccb516abfccbba727592c6ab7e05d3e6ce7d4e97')
+        .then(res => res.json())
+        .then(data => {
+          const slidePictures = data.results;
+          this.setState({ 
+            images: slidePictures
+          })
+        })
+        .catch(err => {
+          alert('Error happened during while loading this page, please check Internet Connection and refresh the page!', err);
+        })
     }
     
     render() {

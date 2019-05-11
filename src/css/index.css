@@ -131,7 +131,7 @@ a {
 @media (max-width: 510px) {
   .page_header {
     position: fixed;
-    z-index: 2;
+    z-index: 3;
     top: 0;
     left: 0;
     padding: 20px; }
@@ -180,14 +180,14 @@ a {
   position: absolute;
   top: 50%;
   right: 25px;
-  z-index: 999;
+  z-index: 2;
   color: #fff; }
 
 .backArrow {
   position: absolute;
   top: 50%;
   left: 25px;
-  z-index: 999;
+  z-index: 2;
   color: #fff; }
 
 .fa-arrow-right:before, .fa-arrow-left:before {
