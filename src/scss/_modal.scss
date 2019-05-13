@@ -1,17 +1,18 @@
 .modal {
-    padding: 120px 0;
+    padding: 600px 0 100px;
     z-index: 2;
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
     width: 100vw;
-    height: 100vh;
+    height: 1000vh;
     background-color: rgba(0, 0, 0, 0.3);
 }
+
 .modal-main {
     text-align: center;
     background-color: #ffffff;
-    width: 80%;
+    width: 90%;
     margin: 0 auto;
     border-radius: 10px;
     border: 3px solid #E86161;
@@ -24,8 +25,7 @@
     top: 0;
     left: 94%;
     color: #222222;
-    background-color: #E86161;
-    
+    background-color: #E86161;    
 }
 
 .full-story-avatar {
@@ -101,4 +101,36 @@
     display: inline-block;
     cursor: pointer;
     margin-right: 10px;
+}
+
+// MEDIA QUERY
+
+@media (min-width:1010px) {
+    .modal {
+        padding: 120px 0;
+        z-index: 2;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 1000vh;
+        background-color: rgba(0, 0, 0, 0.3);
+    }
+    
+    .modal-main {
+        z-index: 2;
+        position: absolute;
+        top: 11%;
+        left: 30%;
+        width: 40%;
+        margin: 0 auto;
+        border-radius: 10px;
+        border: 3px solid #E86161;  
+    }
+    .close-modal {
+        position: relative;
+        top: 0;
+        left: 97%;
+    }
+            
 }

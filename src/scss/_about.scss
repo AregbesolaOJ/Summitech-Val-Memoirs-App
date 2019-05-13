@@ -27,3 +27,21 @@
     letter-spacing: 1.2;
     margin: 5px 0 20px;
 }
+@media (min-width:1010px) {
+    .about {
+        width: 60%;
+        margin: 50px auto;
+    }
+    .intro {
+        font-size: 18px;
+    }
+    .about h1 {
+        font-size: 32px;
+    
+    }
+    .about p {
+        text-align: center;
+        font-size: 14px;
+        letter-spacing: 1.4px;
+    }
+}

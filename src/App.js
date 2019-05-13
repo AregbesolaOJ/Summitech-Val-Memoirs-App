@@ -7,7 +7,6 @@ import StoryList from './components/Stories/Stories';
 import FullStory from './components/FullStoryModal';
 
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faWindowClose, faHeart, faBars, faSpinner, faAngleRight, faAngleLeft } from '@fortawesome/free-solid-svg-icons'
 
 library.add( faWindowClose, faHeart, faBars, faSpinner, faAngleRight, faAngleLeft )
@@ -109,7 +108,7 @@ class App extends React.Component {
   }
 
   viewMoreClick = id => {
-    const story = this.state.stories.filter(story => {
+    this.state.stories.filter(story => {
       if(story.id === id) {
         this.setState({ modalStory: story, showFullStoryModal: true });
       }

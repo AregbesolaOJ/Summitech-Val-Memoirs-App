@@ -1,47 +1,24 @@
 .App {
-  width: 100vw;
+  max-width: 100vw;
+  overflow: hidden;
   margin: 0;
   padding: 0;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: #ffffff;
-}
-
-.App-link {
-  color: #61dafb;
-  text-decoration: none;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
 .storyList {
-  padding: 10px;
-  margin: 10px 0;
+  width: 90%;
+  padding: 20px 10px;
+  margin: 10px auto;
+  border-top: 2px solid #E86161;
 }
+
 .story {
+  padding: 10px 0;
+  border-radius: 4px;
   width: 90%;
   display: flex;
   align-items: center;
+  justify-content: space-around;
   flex-direction: column;
   margin: 10px auto;
   border: 1px solid #eeeeee;
@@ -100,12 +77,13 @@
   margin-right: 10px;
 }
 .likes:active {
-  animation: App-logo-spin infinite 60s linear;
+  animation: infinite 60s linear;
 }
 .view-more {
   font-size: 12px;
   font-style: italic;
   color: #dddddd;
+  cursor: pointer;
 }
 .view-more:hover,
 .view-more:active {
@@ -114,4 +92,22 @@
   font-style: italic;
   color: #222222;
   border-radius: 5px;;
+}
+
+@media (min-width:1010px) {
+  .storyList {
+    width: 80%;
+    padding: 20px;
+    margin: 10px auto;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+  }
+  .story {
+    width: 30%;
+    }
+  .story:hover {
+    background-color: #e5e5e5;
+  }
+  
 }
